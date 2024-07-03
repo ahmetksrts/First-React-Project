@@ -1,0 +1,132 @@
+ /* App.css */
+
+ body, html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+.App {
+  text-align: center;
+  background-color: #f0ece3;
+  min-height: 100vh;
+  min-width:100vw!important;
+  background-image: url('../src/assets/images/background-image.jpg');
+}
+/* burada ki vw değeri ekran kadar anlamına geliyor 50vw yaparsam ekranın yarısı şeklinde oluyor */
+
+.header { 
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 10px;
+  background-color: rgb(0,128,105);
+  color: white;
+  z-index: 1000;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+}
+
+.search-bar input {
+  padding: 3px 8px;
+  border: 28px;
+  border-radius: 5px 20 20 5px;
+}
+
+.search-bar button {
+  padding: 1px 20px;
+  color: #f9f9f9;
+  background-color: rgb(0,128,105);
+  border-radius: 1 5px 5px 1;
+  cursor: pointer;
+}
+
+
+.language-select, .cart {
+  cursor: pointer;
+}
+
+main {
+  padding-top: 60px; /* Adjust based on your header height */
+}
+
+.brand-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 10px;
+  padding: 20px;
+}
+
+.brand-tile {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.brand-name {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.brand-logo {
+  max-width: 80%;
+  max-height: 80%;
+}
+
+/* Add this to your existing CSS */
+
+.language-select ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn {
+  cursor: pointer;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  right: 0;
+}
+
+.dropdown-content span {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  cursor: pointer;
+}
+
+.dropdown-content span:hover {
+  background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
