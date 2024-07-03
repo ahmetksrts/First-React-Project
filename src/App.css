@@ -81,6 +81,7 @@ main {
   align-items: center;
   justify-content: center;
   font-weight: bold;
+  border-radius: 15px;
 }
 
 .brand-logo {
@@ -98,7 +99,7 @@ main {
 
 .dropdown {
   position: relative;
-  display: inline-block;
+  display: block;
 }
 
 .dropbtn {
