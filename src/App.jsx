@@ -2,7 +2,6 @@ import React from 'react';
 import 'semantic-ui-css/semantic.min.css'
 import { Icon } from 'semantic-ui-react'
 import './App.css'; // You'll need to create this CSS file for styling
-import Search from './Search/Search';
 import { GrFlagFill } from "react-icons/gr"; // ilk olarak import Ediyoruz 
 // daha sonrasında bunu bir bileşen gibi kullanıyoruz 
 
@@ -42,6 +41,7 @@ function Header() {
       <div className="search-bar">
         <input type="text" placeholder="Search" />
         <button><i class="search icon"></i></button>
+
 
       </div>
       <div className="language-select">
