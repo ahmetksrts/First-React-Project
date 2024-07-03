@@ -2,6 +2,7 @@ import React from 'react';
 import 'semantic-ui-css/semantic.min.css'
 import { Icon } from 'semantic-ui-react'
 import './App.css'; // You'll need to create this CSS file for styling
+import Search from './Search/Search';
 import { GrFlagFill } from "react-icons/gr"; // ilk olarak import Ediyoruz 
 // daha sonrasında bunu bir bileşen gibi kullanıyoruz 
 
@@ -9,6 +10,28 @@ import { GrFlagFill } from "react-icons/gr"; // ilk olarak import Ediyoruz
 const brands = [
   { name: 'NEW IN', color: 'yellow' },
   { name: 'SALE', color: 'red' },
+  { name: 'AZALEA', logo: 'azalea-logo.png' },
+  { name: 'AZALEA', logo: 'azalea-logo.png' },
+  { name: 'AZALEA', logo: 'azalea-logo.png' },
+  { name: 'AZALEA', logo: 'azalea-logo.png' },
+  { name: 'AZALEA', logo: 'azalea-logo.png' },
+  { name: 'AZALEA', logo: 'azalea-logo.png' },
+  { name: 'AZALEA', logo: 'azalea-logo.png' },
+  { name: 'AZALEA', logo: 'azalea-logo.png' },
+  { name: 'AZALEA', logo: 'azalea-logo.png' },
+  { name: 'AZALEA', logo: 'azalea-logo.png' },
+  { name: 'AZALEA', logo: 'azalea-logo.png' },
+  { name: 'AZALEA', logo: 'azalea-logo.png' },
+  { name: 'AZALEA', logo: 'azalea-logo.png' },
+  { name: 'AZALEA', logo: 'azalea-logo.png' },
+  { name: 'AZALEA', logo: 'azalea-logo.png' },
+  { name: 'AZALEA', logo: 'azalea-logo.png' },
+  { name: 'AZALEA', logo: 'azalea-logo.png' },
+  { name: 'AZALEA', logo: 'azalea-logo.png' },
+  { name: 'AZALEA', logo: 'azalea-logo.png' },
+  { name: 'AZALEA', logo: 'azalea-logo.png' },
+  { name: 'AZALEA', logo: 'azalea-logo.png' },
+  { name: 'AZALEA', logo: 'azalea-logo.png' },
   { name: 'AZALEA', logo: 'azalea-logo.png' },
   // ... add all other brands here
 ];
