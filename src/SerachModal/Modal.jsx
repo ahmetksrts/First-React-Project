@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { Icon } from 'semantic-ui-react';
+
 import "./Modal.css";
 
 export default function Modal() {
@@ -17,7 +19,7 @@ export default function Modal() {
   return (
     <>
       <button onClick={toggleModal} className="modal_btn-modal">
-        Open
+      <i class="search icon"></i>
       </button>
 
       {modal && (

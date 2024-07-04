@@ -3,7 +3,7 @@ import 'semantic-ui-css/semantic.min.css';
 import { Icon } from 'semantic-ui-react';
 import './App.css'; // You'll need to create this CSS file for styling
 import { GrFlagFill } from "react-icons/gr"; // ilk olarak import Ediyoruz 
-import Modal from './Modal/Modal.jsx';
+import Modal from './SerachModal/Modal.jsx';
 // daha sonrasında bunu bir bileşen gibi kullanıyoruz 
 
 
@@ -36,12 +36,13 @@ const brands = [
   // ... add all other brands here
 ];
 
+
+
 function Header() {
   return (
     <header className="app_header">
       <div className="app_search-bar">
-        <input type="text" placeholder="Search" />
-        <button><i class="search icon"></i></button>
+        
         <Modal/>
       </div>
       <div className="app_language-select">
