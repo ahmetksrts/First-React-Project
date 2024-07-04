@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Icon } from 'semantic-ui-react';
-
 import "./Modal.css";
 
 export default function Modal() {

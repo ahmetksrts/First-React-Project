@@ -4,6 +4,7 @@ import { Icon } from 'semantic-ui-react';
 import './App.css'; // You'll need to create this CSS file for styling
 import { GrFlagFill } from "react-icons/gr"; // ilk olarak import Ediyoruz 
 import Modal from './SerachModal/Modal.jsx';
+import BrandModal from './BrandModal/BrandModal.jsx';
 // daha sonrasında bunu bir bileşen gibi kullanıyoruz 
 
 
@@ -36,13 +37,17 @@ const brands = [
   // ... add all other brands here
 ];
 
+const refreshToClick = () => {
+  window.location.reload();
+};
+
 
 
 function Header() {
   return (
     <header className="app_header">
       <div className="app_search-bar">
-        
+        <button className='app_button' onClick={refreshToClick}> Beethoven </button>
         <Modal/>
       </div>
       <div className="app_language-select">
@@ -67,7 +72,7 @@ function Header() {
 
 function BrandTile({ brand }) {
   return (
-    <div className="app_brand-tile">
+    <div className="app_brand-tile" onClick={()=>onclick(brand)}>
       {brand.color ? (
         <div className="app_brand-name" style={{backgroundColor: brand.color}}>
           {brand.name}
@@ -79,23 +84,36 @@ function BrandTile({ brand }) {
   );
 }
 
-function BrandGrid() {
+function BrandGrid(onBrandClick) {
   return (
     <div className="app_brand-grid">
       {brands.map((brand, index) => (
-        <BrandTile key={index} brand={brand} />
+        <BrandTile key={index} brand={brand} onClick={onBrandClick}/>
       ))}
     </div>
   );
 }
 
 function App() {
+  const [selectedBrand, setSelectedBrand] = useState(null);
+
+  const handleBrandClick = (brand) => {
+    setSelectedBrand(brand);
+  };
+
+  const closeModal = () => {
+    setSelectedBrand(null);
+  };
+
   return (
     <div className="app_App">
       <Header />
       <main>
-        <BrandGrid />
+        <BrandGrid onBrandClick={handleBrandClick}/>
       </main>
+      {selectedBrand && (
+        <BrandModal brand={selectedBrand} onClose={closeModal} />
+      )}
     </div>
   );
 }
