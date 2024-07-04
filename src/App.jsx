@@ -1,8 +1,9 @@
-import React from 'react';
-import 'semantic-ui-css/semantic.min.css'
-import { Icon } from 'semantic-ui-react'
+import React, {useState} from 'react';
+import 'semantic-ui-css/semantic.min.css';
+import { Icon } from 'semantic-ui-react';
 import './App.css'; // You'll need to create this CSS file for styling
 import { GrFlagFill } from "react-icons/gr"; // ilk olarak import Ediyoruz 
+import Modal from './Modal/Modal.jsx';
 // daha sonrasında bunu bir bileşen gibi kullanıyoruz 
 
 
@@ -37,18 +38,17 @@ const brands = [
 
 function Header() {
   return (
-    <header className="header">
-      <div className="search-bar">
+    <header className="app_header">
+      <div className="app_search-bar">
         <input type="text" placeholder="Search" />
         <button><i class="search icon"></i></button>
-
-
+        <Modal/>
       </div>
-      <div className="language-select">
+      <div className="app_language-select">
         <ul>
-          <li className="dropdown">
-            <span className="dropbtn"><i class="gb uk flag"></i>EN<i class="caret down icon"></i></span>
-            <div className="dropdown-content">
+          <li className="app_dropdown ">
+            <span className="app_dropbtn"><i class="gb uk flag"></i>EN<i class="caret down icon"></i></span>
+            <div className="app_dropdown-content">
               <span><i class="ru flag"></i>RU</span>
               <span><i class="fr flag"></i>FR</span>
               <span><i class="tr flag"></i>TR</span>
@@ -57,20 +57,22 @@ function Header() {
           </li>
         </ul>
       </div>
-      <div className="cart">Cart</div>
+      <div className="app_cart">Cart</div>
     </header>
   );
 }
 
+
+
 function BrandTile({ brand }) {
   return (
-    <div className="brand-tile">
+    <div className="app_brand-tile">
       {brand.color ? (
-        <div className="brand-name" style={{backgroundColor: brand.color}}>
+        <div className="app_brand-name" style={{backgroundColor: brand.color}}>
           {brand.name}
         </div>
       ) : (
-        <img src={brand.logo} alt={brand.name} className="brand-logo" />
+        <img src={brand.logo} alt={brand.name} className="app_brand-logo" />
       )}
     </div>
   );
@@ -78,7 +80,7 @@ function BrandTile({ brand }) {
 
 function BrandGrid() {
   return (
-    <div className="brand-grid">
+    <div className="app_brand-grid">
       {brands.map((brand, index) => (
         <BrandTile key={index} brand={brand} />
       ))}
@@ -88,7 +90,7 @@ function BrandGrid() {
 
 function App() {
   return (
-    <div className="App">
+    <div className="app_App">
       <Header />
       <main>
         <BrandGrid />
