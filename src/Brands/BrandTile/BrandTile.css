@@ -1,0 +1,26 @@
+.BrandTile__brand-tile{
+  aspect-ratio: 1;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  border-radius: 15px;
+  background-color: aliceblue;
+}
+
+.BrandTile__brand-name{
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  border-radius: 15px;
+}
+
+.BrandTile__brand-logo{
+  max-width: 100px;
+  max-height: 100px;
+}
