@@ -1,8 +1,8 @@
 .BrandGrid__brand-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-    gap: 25px;
-    padding-left: 200px;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 5fr));
+    gap: 15px;
+    padding-left: 100px;
     padding-top: 50px;
-    padding-right: 200px;
+    padding-right: 100px;
   }

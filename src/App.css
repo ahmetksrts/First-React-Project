@@ -1,5 +1,5 @@
  /* App.css */
-
+ 
  body, html {
   margin: 0;
   padding: 0;
@@ -16,5 +16,5 @@
 /* burada ki vw değeri ekran kadar anlamına geliyor 50vw yaparsam ekranın yarısı şeklinde oluyor */
 
 main {
-  padding-top: 60px; /* Adjust based on your header height */
+  padding-top: 15px; /* Adjust based on your header height */
 }

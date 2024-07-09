@@ -1,3 +1,4 @@
+// BrandGrid.jsx
 import React from 'react';
 import "./BrandGrid.css";
 import BrandTile from '../BrandTile/BrandTile.jsx';

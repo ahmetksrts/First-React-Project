@@ -1,3 +1,4 @@
+// BrandTile.jsx
 import React from 'react';
 import brands from "../brands.js";
 import "./BrandTile.css"

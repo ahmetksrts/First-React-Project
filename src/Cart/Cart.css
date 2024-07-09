@@ -1,0 +1,9 @@
+.cart-title{
+    width: unset!important;
+}
+
+.block{
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+}

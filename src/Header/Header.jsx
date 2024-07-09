@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import Modal from '../SearchModal/Modal';
+import Modal from '../SearchModal/SearchModal.jsx';
 import "./Header.css";
 import 'semantic-ui-css/semantic.min.css';
 
