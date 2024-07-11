@@ -4,7 +4,7 @@
     left: 0;
     right: 0;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     padding: 5px 10px;
     background-color: rgb(0,128,105);
@@ -74,3 +74,44 @@
 .header__dropdown:hover .header__dropdown-content {
     display: block;
 }
+
+@media (min-width:1100px) {
+    .header__cart-button{
+        pointer-events: none;
+        background-color: rgb(0,128,105);
+        color: #ffffff;
+        display: flex;
+        border: none;
+    }    
+
+    .header__cart-button:hover{
+        cursor: pointer;
+    }
+}
+
+@media (max-width:1100px) {
+    .header__cart-button{
+        background-color: rgb(0,128,105);
+        color: #ffffff;
+        display: flex;
+        border: none;
+    }    
+
+    .header__cart-button:hover{
+        cursor: pointer;
+    }
+}
+
+.header__cart-button {
+    cursor: pointer;
+  }
+  
+  /* Disable pointer events for the cart button when the screen width is greater than 1100px */
+  @media (min-width: 1100px) {
+    .header__cart-button {
+      pointer-events: none;
+      cursor: default;
+    }
+  }
+  
+

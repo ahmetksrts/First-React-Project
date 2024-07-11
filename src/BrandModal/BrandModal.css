@@ -1,9 +1,5 @@
 /* BrandModal.css */
 
-body.BrandModal__active-modal {
-    overflow: hidden;
-
-}
 
 .BrandModal__overlay {
     opacity: 1;
@@ -20,12 +16,11 @@ body.BrandModal__active-modal {
 
 .BrandModal__modal {
     width: 100%;
-    height: 100vh!important;
+    height: 100vh !important;
     max-width: 600px;
-    background-color: white!important;
+    background-color: white !important;
     border-radius: 8px;
-    overflow: visible;
-    
+    overflow: auto;
 }
 
 .BrandModal__header {
@@ -34,45 +29,52 @@ body.BrandModal__active-modal {
     padding: 10px;
     display: flex;
     align-items: center;
-    z-index: 1000!important;
-    overflow: visible!important;
+    justify-content: center; /* Center the items horizontally */
+    position: relative; /* To position the button absolutely */
 }
 
 .BrandModal__back-button {
-    background: none!important;
-    border: #e2e2e29f solid 2px!important;
+    background: none !important;
+    border: #e2e2e29f solid 2px !important;
     border-radius: 10px;
     color: whitesmoke;
     font-size: 24px;
     cursor: pointer;
-    margin-right: 10px;
+    position: absolute; /* Position the button absolutely */
+    left: 10px; /* Adjust as needed */
+    top: 50%; /* Center the button vertically */
+    transform: translateY(-50%); /* Adjust for exact vertical centering */
 }
 
-.BrandModal__back-button:hover{
+.BrandModal__back-button:hover {
     background-color: #005f56 !important;
     border-color: white !important;
+}
+
+.BrandModal__heading {
+    font-size: 18px;
+    padding: 0; /* Adjust padding if needed */
+    margin: 0; /* Ensure no extra margin */
+    display: block;
+}
+
+.BrandModal__image-content {
+    padding: 20px;
+    overflow-y: auto;
+    flex-grow: 1; /* Allow the content area to grow and take up available space */
+    text-align: center;
 
 }
 
-.BrandModal__search-bar {
-    flex-grow: 1;
-    display: flex;
-    align-items: center;
-    background-color: white;
-    border-radius: 4px;
-    overflow: visible;
-    z-index: 1000 !important;
+.BrandModal__image {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    border-radius: 8px;
 }
 
-.BrandModal__search-bar input {
-    border: none;
-    padding: 10px;
-    flex-grow: 1;
-    font-size: 16px;
-    z-index: 1000 !important;
-}
-
-.BrandModal__search-bar input:focus {
-    outline: none;
-    z-index: 1000 !important;
+.BrandModal__add-to-cart-button{
+    border: green solid 2px;
+    display: block;
+    margin-left: 40%;
 }

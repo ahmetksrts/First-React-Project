@@ -26,9 +26,11 @@ const BrandModal = ({onClose}) => {
           if (event.key === 'Escape') {
             onClose();
           }
+          
         };
     
         window.addEventListener('keydown', handleKeyDown);
+        
         return () => {
           window.removeEventListener('keydown', handleKeyDown);
         };
@@ -39,6 +41,8 @@ const BrandModal = ({onClose}) => {
         toggleFalseModal();
         
       };
+
+      
   return (
     <>
         {modal && (
@@ -48,12 +52,12 @@ const BrandModal = ({onClose}) => {
                     <button className="BrandModal__back-button" onClick={handleClose}>
                         <i class="arrow left icon"></i>
                     </button>
-                    
-                    <div className="BrandModal__search-bar">
-                    <input type="text" placeholder="Product Search"/>
-                
-                    </div>
+                    <h1 className='BrandModal__heading'> New Products </h1>
                 </header>
+                <div className='BrandModal__image-content'>
+                  <img src='https://wg.dialogtab.com/proxy/insecure/q:70/plain/local:///export/881/252159/4.jpg' alt='new product image' className='BrandModal__image' />
+                  <button className='BrandModal__add-to-cart-button'> Add to Cart </button>
+                </div>
 
             </div>
         </div>

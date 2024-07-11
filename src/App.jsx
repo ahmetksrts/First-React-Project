@@ -17,7 +17,7 @@ import Cart from './Cart/Cart.jsx';
 
 
 function App() {
-
+  
   return (
     <div className="App">
       
