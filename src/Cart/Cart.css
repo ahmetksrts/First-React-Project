@@ -35,3 +35,7 @@
         display: none;
     }
 }
+
+.Cart__added-cart-image{
+    float: left;
+}

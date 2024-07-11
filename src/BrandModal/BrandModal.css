@@ -78,3 +78,7 @@
     display: block;
     margin-left: 40%;
 }
+
+#item-id, #item-price, #item-size{
+    display: none;
+}
