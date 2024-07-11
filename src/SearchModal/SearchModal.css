@@ -1,6 +1,7 @@
 /* SearchModal.css */
 body.searchmodal__active-modal {
     overflow: hidden;
+
 }
 
 .searchmodal__btn-modal {
@@ -18,6 +19,7 @@ body.searchmodal__active-modal {
 }
 
 .searchmodal__overlay {
+    opacity: 1;
     position: fixed;
     top: 0;
     left: 0;
@@ -27,15 +29,17 @@ body.searchmodal__active-modal {
     display: flex;
     justify-content: center;
     align-items: center;
+    display: flex;
 }
 
 .searchmodal__modal {
     width: 100%;
     height: 100vh!important;
     max-width: 600px;
-    background-color: white;
+    background-color: white!important;
     border-radius: 8px;
     overflow: visible;
+    
     
 }
 
@@ -60,8 +64,8 @@ body.searchmodal__active-modal {
 }
 
 .searchmodal__back-button:hover{
-    background-color: #005f56!important;
-    border-color: white!important;
+    background-color: #005f56 !important;
+    border-color: white !important;
 
 }
 
@@ -72,7 +76,7 @@ body.searchmodal__active-modal {
     background-color: white;
     border-radius: 4px;
     overflow: visible;
-    z-index: 1000!important;
+    z-index: 1000 !important;
 }
 
 .searchmodal__search-bar input {
@@ -80,12 +84,12 @@ body.searchmodal__active-modal {
     padding: 10px;
     flex-grow: 1;
     font-size: 16px;
-    z-index: 1000!important;
+    z-index: 1000 !important;
 }
 
 .searchmodal__search-bar input:focus {
     outline: none;
-    z-index: 1000!important;
+    z-index: 1000 !important;
 }
 
 .searchmodal__search-button {
@@ -115,6 +119,7 @@ body.searchmodal__active-modal {
     border-radius: 4px;
     cursor: pointer;
     font-size: 16px;
+    margin-top: 20px;
 }
 
 .searchmodal__close-button:hover {

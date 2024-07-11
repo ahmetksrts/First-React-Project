@@ -40,6 +40,7 @@ export default function Modal() {
             </header>
             <main className="searchmodal__main-content">
               <h1>Enter barcode or product code.</h1>
+              <hr/>
               <button className="searchmodal__close-button" onClick={toggleFalseModal}>
                 Close
               </button>

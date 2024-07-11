@@ -6,7 +6,9 @@
   font-family: Arial, sans-serif;
 }
 
-.app_App {
+.App {
+  display: flex;
+  flex-direction: column;
   text-align: center;
   background-color: #f0ece3;
   min-height: 100vh!important;
@@ -15,6 +17,17 @@
 }
 /* burada ki vw değeri ekran kadar anlamına geliyor 50vw yaparsam ekranın yarısı şeklinde oluyor */
 
-main {
-  padding-top: 15px; /* Adjust based on your header height */
+.App__content {
+  display: flex;
+  flex: 1;
+}
+
+@media (min-width:1200px) {
+  .App__main {
+    flex: 0 0 70%; /* 70% genişlik */
+    overflow-y: auto; /* Dikey kaydırma */
+    padding: 20px;
+    box-sizing: border-box; /* Padding'in genişliğe dahil edilmesi için */
+    background-image: url('../src/assets/images/background-image.jpg');
+  }
 }

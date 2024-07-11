@@ -1,10 +1,14 @@
-// Cart.jsx
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import "./Cart.css";
-const Cart = () => {
-  return (
-    <div className='block cart-title'> Cart </div>
-  )
+
+function Cart() {
+    return(
+      <div className='Cart__cart-container'>
+        <button className='Cart_cart-button'>Cart</button>
+        <p>Your cart is empty.</p>
+        
+      </div>
+    );
 }
 
 export default Cart;

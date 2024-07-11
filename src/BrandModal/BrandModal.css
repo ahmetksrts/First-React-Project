@@ -1,0 +1,78 @@
+/* BrandModal.css */
+
+body.BrandModal__active-modal {
+    overflow: hidden;
+
+}
+
+.BrandModal__overlay {
+    opacity: 1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.BrandModal__modal {
+    width: 100%;
+    height: 100vh!important;
+    max-width: 600px;
+    background-color: white!important;
+    border-radius: 8px;
+    overflow: visible;
+    
+}
+
+.BrandModal__header {
+    background-color: #00796b;
+    color: white;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    z-index: 1000!important;
+    overflow: visible!important;
+}
+
+.BrandModal__back-button {
+    background: none!important;
+    border: #e2e2e29f solid 2px!important;
+    border-radius: 10px;
+    color: whitesmoke;
+    font-size: 24px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.BrandModal__back-button:hover{
+    background-color: #005f56 !important;
+    border-color: white !important;
+
+}
+
+.BrandModal__search-bar {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 4px;
+    overflow: visible;
+    z-index: 1000 !important;
+}
+
+.BrandModal__search-bar input {
+    border: none;
+    padding: 10px;
+    flex-grow: 1;
+    font-size: 16px;
+    z-index: 1000 !important;
+}
+
+.BrandModal__search-bar input:focus {
+    outline: none;
+    z-index: 1000 !important;
+}
