@@ -1,19 +1,33 @@
-// BranGrid.jsx
-import React from 'react';
+// BrandGrid.jsx
+import React, { useState } from 'react';
 import "./BrandGrid.css";
 import brands from "../brands.js";
 import BrandTile from '../Brand Tile/BrandTile.jsx';
+import BrandModal from '../../BrandModal/BrandModal.jsx';
 
 function BrandGrid() {
+    const [selectedBrand, setSelectedBrand] = useState(null);
+
+    const handleBrandClick = (brand) => {
+      setSelectedBrand(brand);
+    };
+
+    const handleCloseModal = () => {
+      setSelectedBrand(null);
+    };
+
     return (
-      <div>
-          <div className="BrandGrid__brand-grid">
-            {brands.map((brand, index) => (
-              <BrandTile key={index} brand={brand}/>
-            ))}
-          </div>
+      <div className="BrandGrid__container">
+        <div className="BrandGrid__brand-grid">
+          {brands.map((brand, index) => (
+            <BrandTile key={index} brand={brand} onBrandClick={handleBrandClick} />
+          ))}
+        </div>
+        {selectedBrand && (
+          <BrandModal onClose={handleCloseModal} brand={selectedBrand} />
+        )}
       </div>
     );
-  }
+}
 
 export default BrandGrid;

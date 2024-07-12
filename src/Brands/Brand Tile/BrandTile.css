@@ -1,34 +1,37 @@
-.BrandTile__brand-tile{
-    width: 100px;
-    height: 100px;
+/* BrandTile.css */
+.BrandTile__brand-tile {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding-top: 15px;
+    padding-bottom: 15px;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .BrandTile__brand-logo {
+    max-width: 100% !important;
+    object-fit: contain;
+  }
+  
+  .BrandTile__brand-name {
     font-weight: bold;
-    border-radius: 15px;
-    background-color: whitesmoke;
-}
-
-.BrandTile__brand-tile:hover{
-  background-color: rgb(191, 191, 191);
-  
-}
-  
-.BrandTile__brand-name{
-    width: 100px;
-    height: 100px;
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+    width: 100%;
+    height: 100%;
     display: flex;
-    align-items: center;
     justify-content: center;
-    font-weight: bold;
-    border-radius: 15px;
-}
-  
-.BrandTile__brand-logo{
-    max-width: 100px;
-    max-height: 100px;
-}
+    align-items: center;
+  }
 
 .BrandTile__brand-tile:hover{
     cursor: pointer;
+}
+
+.BrandTile__brand-tile:hover{
+    background-color: rgb(191, 191, 191);
 }

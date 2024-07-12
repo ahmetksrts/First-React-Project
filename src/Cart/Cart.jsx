@@ -1,4 +1,4 @@
-// Cart.jsx
+/* Cart.jsx */
 import React, { useState, useEffect } from 'react';
 import './Cart.css';
 
@@ -17,33 +17,26 @@ function Cart() {
     setTotalPrice(total.toFixed(2));
   };
 
-  const decreaseQuantity = (index) => {
-    const storedCart = JSON.parse(localStorage.getItem('cart')) || [];
-    if (storedCart[index].quantity > 1) {
-      storedCart[index].quantity -= 1;
-    } else {
-      storedCart.splice(index, 1);
+  const updateQuantity = (index, change) => {
+    const updatedCart = [...cartItems];
+    updatedCart[index].quantity += change;
+    if (updatedCart[index].quantity <= 0) {
+      updatedCart.splice(index, 1);
     }
-    localStorage.setItem('cart', JSON.stringify(storedCart));
-    
-    const event = new Event('cartUpdated');
-    window.dispatchEvent(event);
+    localStorage.setItem('cart', JSON.stringify(updatedCart));
+    updateCartItems();
   };
 
   const removeItem = (index) => {
-    const storedCart = JSON.parse(localStorage.getItem('cart')) || [];
-    storedCart.splice(index, 1);
-    localStorage.setItem('cart', JSON.stringify(storedCart));
-    
-    const event = new Event('cartUpdated');
-    window.dispatchEvent(event);
+    const updatedCart = [...cartItems];
+    updatedCart.splice(index, 1);
+    localStorage.setItem('cart', JSON.stringify(updatedCart));
+    updateCartItems();
   };
 
   const clearCart = () => {
     localStorage.setItem('cart', JSON.stringify([]));
-    
-    const event = new Event('cartUpdated');
-    window.dispatchEvent(event);
+    updateCartItems();
   };
 
   useEffect(() => {
@@ -62,24 +55,32 @@ function Cart() {
 
   return (
     <div className='Cart__cart-container'>
-      <button className='Cart_cart-button'>Cart</button>
+      <h2 className='Cart__title'>Cart</h2>
       {cartItems.length === 0 ? (
         <p>Your cart is empty.</p>
       ) : (
         <>
-          <ul>
+          <ul className='Cart__item-list'>
             {cartItems.map((item, index) => (
-              <li key={index}>
-                <img className='Cart__added-cart-image' src={item.image} alt='item' width='100'/>
-                <br/>
-                ID: {item.id}, Size: {item.size}, Price: ${item.price}, Quantity: {item.quantity}
-                <button onClick={() => decreaseQuantity(index)}>-</button>
-                <button onClick={() => removeItem(index)}>Remove</button>
+              <li key={index} className='Cart__item'>
+                <img className='Cart__added-cart-image' src={item.image} alt={item.name} />
+                <div className='Cart__item-details'>
+                  <p><strong>Brand:</strong> {item.name}</p>
+                  <p><strong>ID:</strong> {item.id}</p>
+                  <p><strong>Size:</strong> {item.size}</p>
+                  <p><strong>Price:</strong> ${item.price}</p>
+                  <p><strong>Quantity:</strong> {item.quantity}</p>
+                  <div className='Cart__item-actions'>
+                    <button onClick={() => updateQuantity(index, -1)}>-</button>
+                    <button onClick={() => updateQuantity(index, 1)}>+</button>
+                    <button onClick={() => removeItem(index)}>Remove</button>
+                  </div>
+                </div>
               </li>
             ))}
           </ul>
-          <p>Total Price: ${totalPrice}</p>
-          <button onClick={clearCart}>Remove All</button>
+          <p className='Cart__total-price'>Total Price: ${totalPrice}</p>
+          <button className='Cart__remove-all' onClick={clearCart}>Remove All</button>
         </>
       )}
     </div>

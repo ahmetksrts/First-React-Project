@@ -1,41 +1,75 @@
-.Cart_cart-button{
-    background-color: white;
-    padding:5px;
-  
-    border: none;
-    margin-top: 50px;
-    border-radius: 5px;
-    display: block;
-    width: 100%;
-    overflow: hidden;
-    z-index: 1;
-    
-  
-}
-  
-.Cart_cart-button:hover{
-    cursor: pointer;
-  
-}
-  
-@media (min-width:1100px) {
-    .Cart__cart-container {
-        flex: 0 0 30%; /* 30% genişlik */
-        padding: 20px;
-        box-sizing: border-box; /* Padding'in genişliğe dahil edilmesi için */
-        /* background-color: #d0d0d0; İsteğe bağlı arka plan rengi */
-        /* background-image: url('../src/assets/images/background-image.jpg'); */
-        background-color: aliceblue;
-        overflow: hidden;
-    }
-}
-  
-@media (max-width:1100px){
-    .Cart__cart-container{
-        display: none;
-    }
+/* Cart.css */
+.Cart__cart-container {
+    flex: 0 0 30%;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: aliceblue;
+    overflow-y: auto;
+    height: 100vh;
 }
 
-.Cart__added-cart-image{
-    float: left;
+.Cart__title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    margin-top: 50px;
+    padding-top: 50px;
+}
+
+.Cart__item-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.Cart__item {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 20px;
+}
+
+.Cart__added-cart-image {
+    width: 100%;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+.Cart__item-details p {
+    margin: 5px 0;
+}
+
+.Cart__item-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.Cart__item-actions button {
+    padding: 5px 10px;
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.Cart__total-price {
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.Cart__remove-all {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+}
+
+@media (max-width: 1100px) {
+    .Cart__cart-container {
+        display: none;
+    }
 }
