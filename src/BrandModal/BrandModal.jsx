@@ -1,6 +1,7 @@
 // BrandModal.jsx
 import React from 'react';
 import "./BrandModal.css";
+import { Button } from 'semantic-ui-react'
 
 const BrandModal = ({ onClose, brand }) => {
   const handleAddToCart = () => {
@@ -47,9 +48,10 @@ const BrandModal = ({ onClose, brand }) => {
           />
           <p id='hidden'>Size: {brand.size}</p>
           <p id='hidden'> Price: {brand.price}</p>
-          <button className='BrandModal__add-to-cart-button' onClick={handleAddToCart}>
+          {/* <button className='BrandModal__add-to-cart-button' onClick={handleAddToCart}>
             Add to Cart
-          </button>
+          </button> */}
+          <Button onClick={handleAddToCart}>Add to Cart</Button>
         </div>
       </div>
     </div>

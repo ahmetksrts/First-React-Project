@@ -1,9 +1,14 @@
+/* CartModal.jsx */
+
 import React, { useState, useEffect } from 'react';
 import "./CartModal.css";
+import BrandModal from '../BrandModal/BrandModal.jsx';
+import Header from '../Header/Header';
 
 const CartModal = ({ onClose }) => {
   const [cartItems, setCartItems] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
+  const [selectedProduct, setSelectedProduct] = useState(null);
 
   const updateCartItems = () => {
     const storedCart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -38,6 +43,10 @@ const CartModal = ({ onClose }) => {
     updateCartItems();
   };
 
+  const handleProductClick = (item) => {
+    setSelectedProduct(item);
+  };
+
   useEffect(() => {
     updateCartItems();
 
@@ -55,35 +64,8 @@ const CartModal = ({ onClose }) => {
   return (
     <div className='CartModal__overlay'>
       <div className='CartModal'>
+        <Header/>
         <h2 className='CartModal__title'>Cart</h2>
-        <button className='CartModal__close-button' onClick={onClose}>Close</button>
-        {cartItems.length === 0 ? (
-          <p>Your cart is empty.</p>
-        ) : (
-          <>
-            <ul className='CartModal__item-list'>
-              {cartItems.map((item, index) => (
-                <li key={index} className='CartModal__item'>
-                  <img className='CartModal__added-cart-image' src={item.image} alt={item.name} />
-                  <div className='CartModal__item-details'>
-                    <p><strong>Brand:</strong> {item.name}</p>
-                    <p><strong>ID:</strong> {item.id}</p>
-                    <p><strong>Size:</strong> {item.size}</p>
-                    <p><strong>Price:</strong> ${item.price}</p>
-                    <p><strong>Quantity:</strong> {item.quantity}</p>
-                    <div className='CartModal__item-actions'>
-                      <button onClick={() => updateQuantity(index, -1)}>-</button>
-                      <button onClick={() => updateQuantity(index, 1)}>+</button>
-                      <button onClick={() => removeItem(index)}>Remove</button>
-                    </div>
-                  </div>
-                </li>
-              ))}
-            </ul>
-            <p className='CartModal__total-price'>Total Price: ${totalPrice}</p>
-            <button className='CartModal__remove-all' onClick={clearCart}>Remove All</button>
-          </>
-        )}
       </div>
     </div>
   );

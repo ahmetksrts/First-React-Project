@@ -1,10 +1,17 @@
 /* Cart.jsx */
+
 import React, { useState, useEffect } from 'react';
 import './Cart.css';
+import BrandModal from '../BrandModal/BrandModal.jsx';
+
+import { Form, TextArea,Button } from 'semantic-ui-react'
+
+
 
 function Cart() {
   const [cartItems, setCartItems] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
+  const [selectedProduct, setSelectedProduct] = useState(null);
 
   const updateCartItems = () => {
     const storedCart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -39,6 +46,10 @@ function Cart() {
     updateCartItems();
   };
 
+  const handleProductClick = (item) => {
+    setSelectedProduct(item);
+  };
+
   useEffect(() => {
     updateCartItems();
 
@@ -62,26 +73,37 @@ function Cart() {
         <>
           <ul className='Cart__item-list'>
             {cartItems.map((item, index) => (
-              <li key={index} className='Cart__item'>
+              <li key={index} className='Cart__item' onClick={() => handleProductClick(item)}>
                 <img className='Cart__added-cart-image' src={item.image} alt={item.name} />
                 <div className='Cart__item-details'>
-                  <p><strong>Brand:</strong> {item.name}</p>
-                  <p><strong>ID:</strong> {item.id}</p>
-                  <p><strong>Size:</strong> {item.size}</p>
-                  <p><strong>Price:</strong> ${item.price}</p>
-                  <p><strong>Quantity:</strong> {item.quantity}</p>
+                  <p className='Cart__item-name'>{item.id}</p>
+                  <p className='Cart__item-price'>${item.price}</p>
                   <div className='Cart__item-actions'>
-                    <button onClick={() => updateQuantity(index, -1)}>-</button>
-                    <button onClick={() => updateQuantity(index, 1)}>+</button>
-                    <button onClick={() => removeItem(index)}>Remove</button>
+                    <Button onClick={(e) => { e.stopPropagation(); updateQuantity(index, -1); }}>-</Button>
+                    <span style={{padding:"10px",background:"#fff"}}>{item.quantity}</span>
+                    <Button onClick={(e) => { e.stopPropagation(); updateQuantity(index, 1); }}>+</Button>
                   </div>
                 </div>
+                
+                <Button color='red' className='Cart__remove-button' onClick={(e) => { e.stopPropagation(); removeItem(index); }} >Remove</Button>
               </li>
             ))}
           </ul>
-          <p className='Cart__total-price'>Total Price: ${totalPrice}</p>
+          <div className='Cart__order-note'>
+            <h3>Order Note</h3>
+            <Form>
+              <TextArea style={{resize:"none"}} placeholder='Tell us more' />
+            </Form>
+          </div>
+          <div className='Cart__summary'>
+            <p>Set: {cartItems.length}</p>
+            <p className='Cart__total-price'>Total Price: ${totalPrice}</p>
+          </div>
           <button className='Cart__remove-all' onClick={clearCart}>Remove All</button>
         </>
+      )}
+      {selectedProduct && (
+        <BrandModal onClose={() => setSelectedProduct(null)} brand={selectedProduct} />
       )}
     </div>
   );
