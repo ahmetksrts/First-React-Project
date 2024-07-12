@@ -1,22 +1,22 @@
+// BrandTile.jsx
 import React, {useState} from 'react';
 import "./BrandTile.css";
-import brands from "../brands.js";
 import BrandModal from '../../BrandModal/BrandModal.jsx';
 
 function BrandTile({ brand }) {
-    const [clicked, setClicked] = useState(false);
+    const [isModalOpen, setIsModalOpen] = useState(false);
   
     const BrandClicked = () => {
-      setClicked(true);
+      setIsModalOpen(true);
     };
   
     const closeModal = () => {
-      setClicked(false);
+      setIsModalOpen(false);
     };
   
     return (
       <div className="BrandTile__brand-tile" onClick={BrandClicked}>
-        {clicked && <BrandModal onClose={closeModal} />}
+        {isModalOpen && <BrandModal onClose={closeModal} brand={brand} />}
         {brand.color ? (
             <div className="BrandTile__brand-name" style={{backgroundColor: brand.color}}>
               {brand.name}

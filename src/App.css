@@ -31,3 +31,13 @@
     background-image: url('../src/assets/images/background-image.jpg');
   }
 }
+
+@media (max-width:1200px) {
+  .App__main {
+    flex: 1;
+    overflow-y: auto; /* Dikey kaydırma */
+    padding: 20px;
+    box-sizing: border-box; /* Padding'in genişliğe dahil edilmesi için */
+    background-image: url('../src/assets/images/background-image.jpg');
+  }
+}

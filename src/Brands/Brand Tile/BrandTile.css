@@ -1,5 +1,4 @@
 .BrandTile__brand-tile{
-    aspect-ratio: 1;
     width: 100px;
     height: 100px;
     display: flex;
@@ -7,7 +6,12 @@
     justify-content: center;
     font-weight: bold;
     border-radius: 15px;
-    background-color: aliceblue;
+    background-color: whitesmoke;
+}
+
+.BrandTile__brand-tile:hover{
+  background-color: rgb(191, 191, 191);
+  
 }
   
 .BrandTile__brand-name{

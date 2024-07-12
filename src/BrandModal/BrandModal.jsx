@@ -1,10 +1,8 @@
 // BrandModal.jsx
-
 import React, { useState, useEffect } from 'react';
 import "./BrandModal.css";
-import { Icon } from 'semantic-ui-react';
 
-const BrandModal = ({ onClose }) => {
+const BrandModal = ({ onClose, brand }) => {
   const [modal, setModal] = useState(true);
 
   const handleAddToCart = () => {
@@ -16,13 +14,13 @@ const BrandModal = ({ onClose }) => {
     const item = {
       id: itemId,
       size: itemSize,
-      price: itemPrice,
+      price: parseFloat(itemPrice.replace('$', '')),
       image: itemImage,
       quantity: 1
     };
 
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
-    const existingItemIndex = cart.findIndex(cartItem => cartItem.id === itemId && cartItem.size === itemSize && cartItem.price === itemPrice);
+    const existingItemIndex = cart.findIndex(cartItem => cartItem.id === itemId && cartItem.size === itemSize);
 
     if (existingItemIndex >= 0) {
       cart[existingItemIndex].quantity += 1;
@@ -32,11 +30,10 @@ const BrandModal = ({ onClose }) => {
 
     localStorage.setItem('cart', JSON.stringify(cart));
     
-    // Dispatch a custom event
     const event = new Event('cartUpdated');
     window.dispatchEvent(event);
 
-    handleClose(); // Optionally close modal after adding to cart
+    handleClose();
   };
 
   const handleClose = () => {
@@ -58,6 +55,13 @@ const BrandModal = ({ onClose }) => {
     };
   }, [onClose]);
 
+  const getImageUrl = () => {
+    if (brand.name === 'SALE') {
+      return 'https://wg.dialogtab.com/proxy/insecure/q:70/plain/local:///export/570/279317/2.jpg';
+    }
+    return 'https://wg.dialogtab.com/proxy/insecure/q:70/plain/local:///export/881/252159/4.jpg';
+  };
+
   return (
     <>
       {modal && (
@@ -71,7 +75,7 @@ const BrandModal = ({ onClose }) => {
             </header>
             <div className='BrandModal__image-content'>
               <img
-                src='https://wg.dialogtab.com/proxy/insecure/q:70/plain/local:///export/881/252159/4.jpg'
+                src={getImageUrl()}
                 alt='new product image'
                 className='BrandModal__image'
               />

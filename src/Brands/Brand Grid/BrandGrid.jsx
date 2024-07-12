@@ -1,3 +1,4 @@
+// BranGrid.jsx
 import React from 'react';
 import "./BrandGrid.css";
 import brands from "../brands.js";
@@ -15,4 +16,4 @@ function BrandGrid() {
     );
   }
 
-export default BrandGrid
+export default BrandGrid;

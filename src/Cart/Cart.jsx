@@ -1,34 +1,54 @@
 // Cart.jsx
-
 import React, { useState, useEffect } from 'react';
 import './Cart.css';
 
 function Cart() {
   const [cartItems, setCartItems] = useState([]);
+  const [totalPrice, setTotalPrice] = useState(0);
 
   const updateCartItems = () => {
     const storedCart = JSON.parse(localStorage.getItem('cart')) || [];
     setCartItems(storedCart);
+    calculateTotalPrice(storedCart);
   };
 
-  const removeItem = (index) => {
+  const calculateTotalPrice = (items) => {
+    const total = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
+    setTotalPrice(total.toFixed(2));
+  };
+
+  const decreaseQuantity = (index) => {
     const storedCart = JSON.parse(localStorage.getItem('cart')) || [];
     if (storedCart[index].quantity > 1) {
       storedCart[index].quantity -= 1;
     } else {
-      storedCart.splice(index, 1); // Remove item from array if quantity is 1
+      storedCart.splice(index, 1);
     }
     localStorage.setItem('cart', JSON.stringify(storedCart));
     
-    // Dispatch a custom event to trigger re-render
+    const event = new Event('cartUpdated');
+    window.dispatchEvent(event);
+  };
+
+  const removeItem = (index) => {
+    const storedCart = JSON.parse(localStorage.getItem('cart')) || [];
+    storedCart.splice(index, 1);
+    localStorage.setItem('cart', JSON.stringify(storedCart));
+    
+    const event = new Event('cartUpdated');
+    window.dispatchEvent(event);
+  };
+
+  const clearCart = () => {
+    localStorage.setItem('cart', JSON.stringify([]));
+    
     const event = new Event('cartUpdated');
     window.dispatchEvent(event);
   };
 
   useEffect(() => {
-    updateCartItems(); // Initial load
+    updateCartItems();
 
-    // Listen to custom event
     const handleCartUpdate = () => {
       updateCartItems();
     };
@@ -46,16 +66,21 @@ function Cart() {
       {cartItems.length === 0 ? (
         <p>Your cart is empty.</p>
       ) : (
-        <ul>
-          {cartItems.map((item, index) => (
-            <li key={index}>
-              <img className='Cart__added-cart-image' src={item.image} alt='item' width='100'/>
-              <br/>
-              ID: {item.id}, Size: {item.size}, Price: {item.price}, Quantity: {item.quantity}
-              <button onClick={() => removeItem(index)}>Remove</button>
-            </li>
-          ))}
-        </ul>
+        <>
+          <ul>
+            {cartItems.map((item, index) => (
+              <li key={index}>
+                <img className='Cart__added-cart-image' src={item.image} alt='item' width='100'/>
+                <br/>
+                ID: {item.id}, Size: {item.size}, Price: ${item.price}, Quantity: {item.quantity}
+                <button onClick={() => decreaseQuantity(index)}>-</button>
+                <button onClick={() => removeItem(index)}>Remove</button>
+              </li>
+            ))}
+          </ul>
+          <p>Total Price: ${totalPrice}</p>
+          <button onClick={clearCart}>Remove All</button>
+        </>
       )}
     </div>
   );
