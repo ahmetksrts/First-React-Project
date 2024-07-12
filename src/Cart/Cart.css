@@ -3,16 +3,31 @@
     flex: 0 0 30%;
     padding: 20px;
     box-sizing: border-box;
-    background-color: aliceblue;
+    background-color: transparent;
     overflow-y: auto;
     height: 100vh;
 }
 
-.Cart__title {
-    font-size: 24px;
-    margin-bottom: 20px;
-    margin-top: 50px;
-    padding-top: 50px;
+.Cart__content {
+    margin-top: 10px;
+    padding: 20px;
+    
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.Cart__container-button{
+    background-color: white;
+    border: none;
+    border-radius: 10px;
+    width: 100% !important;
+    padding: 5px;
+    margin-top: 90px;
+}
+
+.Cart__container-button:hover{
+    cursor: pointer;
 }
 
 .Cart__item-list {

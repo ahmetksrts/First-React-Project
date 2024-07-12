@@ -66,7 +66,9 @@ function Cart() {
 
   return (
     <div className='Cart__cart-container'>
-      <h2 className='Cart__title'>Cart</h2>
+
+      <button className='Cart__container-button'>Cart</button>
+      <div className='Cart__content'>
       {cartItems.length === 0 ? (
         <p>Your cart is empty.</p>
       ) : (
@@ -90,9 +92,9 @@ function Cart() {
             ))}
           </ul>
           <div className='Cart__order-note'>
-            <h3>Order Note</h3>
+            
             <Form>
-              <TextArea style={{resize:"none"}} placeholder='Tell us more' />
+              <TextArea style={{resize:"none"}} placeholder='Order note' />
             </Form>
           </div>
           <div className='Cart__summary'>
@@ -105,6 +107,8 @@ function Cart() {
       {selectedProduct && (
         <BrandModal onClose={() => setSelectedProduct(null)} brand={selectedProduct} />
       )}
+
+      </div>
     </div>
   );
 }
