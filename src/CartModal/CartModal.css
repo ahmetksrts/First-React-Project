@@ -8,83 +8,42 @@
 
 }
 
-.CartModal {
-  position: relative;
+.CartModal__container {
   width: 100% !important;
   height: 100% !important;
   background-image: url("../assets/images/background-image.jpg");
-
   overflow-y: auto;
   margin-top: 50px;
-  box-sizing: border-box;
-}
-
-.CartModal__close-button {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: none;
-  border: none;
-  font-size: 18px;
-  cursor: pointer;
-}
-
-.CartModal__title {
-  font-size: 24px;
-  margin-bottom: 20px;
-  margin-top: 50px;
-  padding-top: 50px;
-}
-
-.CartModal__item-list {
-  list-style-type: none;
-  padding: 0;
-}
-
-.CartModal__item {
   display: flex;
   flex-direction: column;
-  margin-bottom: 20px;
-  border-bottom: 1px solid #ddd;
-  padding-bottom: 20px;
+  align-items: center;
 }
 
-.CartModal__added-cart-image {
-  width: 100%;
-  height: auto;
-  margin-bottom: 15px;
+@media (min-width: 1100px) {
+  .CartModal__overlay {
+      display: none;
+  }
 }
 
-.CartModal__item-details p {
-  margin: 5px 0;
-}
-
-.CartModal__item-actions {
+.CartModal__content {
+  margin-top: 30px;
+  padding: 20px;
+  width: 90% !important;
+  height: 80% !important;
+  background-color: white !important;
+  border-radius: 15px !important;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Slight shadow for better visibility */
   display: flex;
-  justify-content: space-between;
-  margin-top: 10px;
+  justify-content: center; /* Center content horizontally */
+  align-content: center;
 }
 
-.CartModal__item-actions button {
-  padding: 5px 10px;
-  background-color: #f0f0f0;
-  border: 1px solid #ddd;
-  border-radius: 3px;
-  cursor: pointer;
-}
-
-.CartModal__total-price {
-  font-weight: bold;
-  margin-top: 20px;
-}
-
-.CartModal__remove-all {
-  background-color: #ff4d4d;
-  color: white;
-  border: none;
-  padding: 10px;
-  border-radius: 5px;
-  cursor: pointer;
-  width: 100%;
-  margin-top: 10px;
+.CartModal__cart-button {
+  width: 90% !important;
+  background-color: white !important;
+  border-radius: 15px !important;
+  padding: 5px;
+  margin-top: 20px; /* Add some space above the button */
+  display: flex;
+  justify-content: center; /* Center the button text */
 }

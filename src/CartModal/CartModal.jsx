@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import "./CartModal.css";
+import { Button } from 'semantic-ui-react'
 import BrandModal from '../BrandModal/BrandModal.jsx';
 import Header from '../Header/Header';
 
@@ -63,9 +64,18 @@ const CartModal = ({ onClose }) => {
 
   return (
     <div className='CartModal__overlay'>
-      <div className='CartModal'>
+      <div className='CartModal__container'>
         <Header/>
-        <h2 className='CartModal__title'>Cart</h2>
+        <Button className='CartModal__cart-button'>Cart</Button>
+
+        <div className='CartModal__content'>
+        {cartItems.length==0 ? (
+          <p> Cart is empty </p>
+        ) : (
+          <>
+          </>
+        )}
+        </div>
       </div>
     </div>
   );
