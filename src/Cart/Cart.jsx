@@ -3,7 +3,6 @@
 import React, { useState, useEffect } from 'react';
 import './Cart.css';
 import BrandModal from '../BrandModal/BrandModal.jsx';
-
 import { Form, TextArea,Button } from 'semantic-ui-react'
 
 

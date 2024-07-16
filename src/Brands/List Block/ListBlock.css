@@ -1,0 +1,45 @@
+.ListBlock__content{
+    width: 200px;
+    height: 200px;
+    min-width: 200px;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 3px;
+    background: #fff;
+    margin: 0 5px 5px 0;
+    box-shadow: 0 1px .5px rgba(0,0,0,.13);
+    border-radius: 8px;
+    margin-left: 50px;
+    
+}
+
+.ListBlock__title{
+    background: #fff;
+    color: #0000008f;
+    margin: 0;
+    font-size: 15px;
+    padding: 6px;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+
+}
+
+.ListBlock__product-block{
+    cursor: pointer;
+    background-color: #fff;
+    font-size: 16px;
+    flex: 1;
+}
+
+.ListBlock__product-block img{
+    object-fit: contain !important;
+    width: 100px !important;
+    height: 150px !important;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}

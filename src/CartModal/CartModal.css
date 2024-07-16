@@ -8,6 +8,12 @@
 
 }
 
+@media (min-width: 1100px) {
+  .CartModal__overlay {
+      display: none;
+  }
+}
+
 .CartModal__container {
   width: 100% !important;
   height: 100% !important;
@@ -19,10 +25,14 @@
   align-items: center;
 }
 
-@media (min-width: 1100px) {
-  .CartModal__overlay {
-      display: none;
-  }
+.CartModal__cart-button {
+  width: 90% !important;
+  background-color: white !important;
+  border-radius: 15px !important;
+  padding: 5px;
+  margin-top: 20px; /* Add some space above the button */
+  display: flex;
+  justify-content: center; /* Center the button text */
 }
 
 .CartModal__content {
@@ -36,14 +46,64 @@
   display: flex;
   justify-content: center; /* Center content horizontally */
   align-content: center;
+  
 }
 
-.CartModal__cart-button {
-  width: 90% !important;
-  background-color: white !important;
-  border-radius: 15px !important;
-  padding: 5px;
-  margin-top: 20px; /* Add some space above the button */
+.CartModal__item-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.CartModal__item {
   display: flex;
-  justify-content: center; /* Center the button text */
+  align-items: flex-start;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 20px;
+}
+
+.CartModal__added-cart-image {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  margin-right: 15px;
+}
+
+.CartModal__item-details p {
+  margin: 0;
+}
+
+.CartModal__item-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.CartModal__item-actions button {
+  padding: 5px 10px;
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.CartModal__total-price {
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.CartModal__remove-all {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 10%;
+  margin-top: 10px;
+}
+
+.CartModal__cart-message{
+  z-index: 1000;
+  color: black;
 }
